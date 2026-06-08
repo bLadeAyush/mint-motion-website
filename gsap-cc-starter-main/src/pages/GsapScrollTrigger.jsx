@@ -1,6 +1,38 @@
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 const GsapScrollTrigger = () => {
   // TODO: Implement the gsap scroll trigger
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    gsap.to("#scroll-pink", {
+      scrollTrigger: {
+        trigger: "#scroll-pink",
+        start: "top 80%",
+        end: "top 30%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+      x: 250,
+      rotation: 360,
+      duration: 1,
+      ease: "bounce.in",
+    });
 
+    gsap.to("#scroll-orange", {
+      scrollTrigger: {
+        trigger: "#scroll-orange",
+        start: "top 80%",
+        end: "top 30%",
+        scrub: true,
+        toggleActions: "play none none reverse",
+      },
+      x: 250,
+      rotation: 360,
+      duration: 1,
+      ease: "bounce.in",
+    });
+  }, []);
   return (
     <main>
       <h1>GsapScrollTrigger</h1>
